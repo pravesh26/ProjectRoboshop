@@ -1,0 +1,24 @@
+# Yaml can Start/Stop all the containers at once.
+# We can also define Networks and Volumes in Docker-Compose(YAML) file.
+# YAML and JSON are Language is used to send the data from client site to the Server. E.g FAcebook Login.
+# Used for Data Transfer from one system to another.
+
+version: "3.9"
+networks:
+  roboshop:
+    driver: bridge
+services:
+  web:
+    image: web:v1
+    container_name: web
+    depends_on: 
+    - catalogue
+  catalogue:
+    image: catalogue:v1
+    container_name: catalogue
+    depends_on:
+    - mongodb
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
+
