@@ -29,4 +29,6 @@ services:
      depends_on:
      - mongodb
      - redis  
+  redis:
+    image: redis   
 
